@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - Bombay Hospital</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #f4f9fc;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 03px;
+            background-color: #0047AB;
+            color: white;
+        }
+
+        header nav a {
+            color: white;
+            margin-right: 10px;
+            text-decoration: none;
+        }
+
+        header .btn-appointment {
+            background-color: #2193b0;
+            padding: 1px 0px;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        .form-container {
+            flex: 1;
+            max-width: 600px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            color: #0047AB;
+            text-align: center;
+        }
+
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #333;
+        }
+
+        .form-container input, 
+        .form-container select, 
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-container input:focus,
+        .form-container select:focus,
+        .form-container textarea:focus {
+            border-color: #0047AB;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        .info-container {
+            flex: 1;
+            max-width: 400px;
+            padding: 20px;
+            background: #e9f7fe;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: slideIn 1s ease-out;
+        }
+
+        .info-container img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            background: #0047AB;
+            color: white;
+            padding: 15px;
+        }
+
+       
+        #successPopup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: scaleIn 0.5s ease;
+        }
+
+        .popup-content h2 {
+            color: #28a745;
+        }
+
+        .popup-content p {
+            margin: 10px 0 20px;
+            color: #333;
+        }
+
+        .popup-content button {
+            background-color: #0047AB;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .popup-content button:hover {
+            background-color: #003580;
+        }
+
+      
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        
+        <div class="logo"> <img src="template/FreeWebToolkit_1728993149.ico" class="logo-img">
+            Bombay Hospital</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="doctors.html">Doctors</a>
+            <a href="login.html">Login</a>
+            <a href="signup.html">Register</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Book Your Appointment</h2>
+            <form onsubmit="return validateForm();">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+                <label for="doctor">Select Doctor:</label>
+                <select id="doctor" name="doctor" required>
+                    <option value="" disabled selected>Select a doctor</option>
+                    <option value="dr_smith">Dr. Smith (Cardiologist)</option>
+                    <option value="dr_jones">Dr. Jones (Dermatologist)</option>
+                    <option value="dr_clark">Dr. Clark (Orthopedist)</option>
+                </select>
+
+                <label for="date">Appointment Date:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="message">Additional Message (Optional):</label>
+                <textarea id="message" name="message" rows="4" placeholder="Any additional information"></textarea>
+
+                <input type="submit" value="Book Appointment">
+            </form>
+        </div>
+
+        <div class="info-container">
+            <img src="template/appointment.jpg" alt="Hospital">
+            <img src="template/appointment1.jpg" alt="Hospital">
+            
+            <p>
+                We prioritize your health and well-being. Book an appointment today with one of our top specialists and ensure the best care.
+            </p>
+        </div>
+    </div>
+
+    
+    <div id="successPopup">
+        <div class="popup-content">
+            <h2>Appointment Booked Successfully!</h2>
+            <p>Your appointment has been booked. We look forward to seeing you.</p>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 @Mithilesh Chaurasiya</p>
+    </footer>
+
+    <script>
+        function validateForm() {
+            const name = document.getElementById("name").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const appointmentDate = document.getElementById("date").value;
+            const today = new Date().toISOString().split("T")[0];
+
+            
+            const namePattern = /^[a-zA-Z\s]+$/;
+            if (!namePattern.test(name)) {
+                alert("Full Name should contain only letters and spaces.");
+                return false;
+            }
+
+          
+            const phonePattern = /^[0-9]{10}$/;
+            if (!phonePattern.test(phone)) {
+                alert("Phone Number should be exactly 10 digits.");
+                return false;
+            }
+
+            
+            if (appointmentDate < today) {
+                alert("Appointment Date cannot be in the past.");
+                return false;
+            }
+
+          
+            showSuccessPopup();
+            return false; 
+        }
+
+        function showSuccessPopup() {
+            const successPopup = document.getElementById("successPopup");
+            successPopup.style.display = "flex";
+        }
+
+        function closePopup() {
+            const successPopup = document.getElementById("successPopup");
+            successPopup.style.display = "none";
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

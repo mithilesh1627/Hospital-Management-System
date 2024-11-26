@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Bombay Hospital</title>
+    <style>
+        
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #f4f9fc;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #0047AB;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            width: 35px;
+            height: 35px;
+        }
+
+        header nav {
+            display: flex;
+            gap: 50px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #28a745;
+        }
+
+        
+        .hero {
+            background: #0047AB;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        
+        .services {
+            padding: 40px 20px;
+            background: #e9f7fe;
+        }
+
+        .services h2 {
+            text-align: center;
+            color: #0047AB;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .services-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .service {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .service img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+        }
+
+        .service h3 {
+            color: #0047AB;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        
+        footer {
+            text-align: center;
+            background-color: #0047AB;
+            color: white;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer .footer-links a {
+            color: #28a745;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        footer .footer-links a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="template/FreeWebToolkit_1728993149.ico" alt="Hospital Logo">
+            Bombay Hospital
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="doctors.html">Doctors</a>
+            <a href="gallery.html">Gallery</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Our Services</h1>
+        <p>Delivering quality healthcare services with compassion and expertise.</p>
+    </section>
+
+    <section class="services">
+        <h2>Comprehensive Care for Every Need</h2>
+        <div class="services-list">
+            <div class="service">
+                <img src="template/cardiology.jpg" alt="Cardiology">
+                <h3>Cardiology</h3>
+                <p>Advanced heart care with state-of-the-art technology.</p>
+            </div>
+            <div class="service">
+                <img src="template/orthopedics.jpg" alt="Orthopedics">
+                <h3>Orthopedics</h3>
+                <p>Expert care for bone and joint health.</p>
+            </div>
+            <div class="service">
+                <img src="template/neurology.jpg" alt="Neurology">
+                <h3>Neurology</h3>
+                <p>Comprehensive treatment for brain and nerve disorders.</p>
+            </div>
+            <div class="service">
+                <img src="template/pediatrics.jpg" alt="Pediatrics">
+                <h3>Pediatrics</h3>
+                <p>Quality care for your little ones at every stage of growth.</p>
+            </div>
+            <div class="service">
+                <img src="template/emergency.jpg" alt="Emergency Care">
+                <h3>Emergency Care</h3>
+                <p>Round-the-clock support for critical situations.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2024 @Mithilesh Chaurasiya</p>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Bombay Hospital</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow-x: hidden;
+            background-color: #f0f4f8;
+        }
+
+        .signup-container {
+            display: flex;
+            flex: 1;
+            height: 100%;
+        }
+
+        .form-column {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+        }
+
+        .signup-box {
+            width: 100%;
+            max-width: 400px; /* Reduced size */
+            padding: 20px; /* Compact padding */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background-color: white;
+        }
+
+        .signup-box h2 {
+            text-align: center;
+            color: #0056b3;
+            margin-bottom: 20px;
+        }
+
+        .signup-box label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .signup-box input,
+        .signup-box select {
+            width: 100%;
+            padding: 8px; /* Adjusted padding */
+            margin-bottom: 15px; /* Reduced spacing */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .signup-box button {
+            width: 100%;
+            padding: 10px; /* Adjusted button size */
+            background-color: #0088cc;
+            color: white;
+            border: none;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .signup-box button:hover {
+            background-color: #0056b3;
+        }
+
+        .signup-box .login-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .signup-box .login-link a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+
+        .image-column {
+            flex: 1;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        footer .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        footer .footer-content a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.85rem;
+        }
+
+        footer .footer-content a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            footer .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .signup-container {
+                flex-direction: column;
+            }
+
+            .form-column,
+            .image-column {
+                flex: none;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <div class="form-column">
+            <div class="signup-box">
+                <h2>Join Us Today</h2>
+                <form id="signupForm">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                    <label for="countryCode">Country Code</label>
+                    <select id="countryCode" name="countryCode" required>
+                        <option value="+91" selected>India (+91)</option>
+                        <option value="+1">United States (+1)</option>
+                        <option value="+44">United Kingdom (+44)</option>
+                    </select>
+
+                    <label for="mobile">Mobile Number</label>
+                    <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" required>
+
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password" required>
+
+                    <button type="submit">Register</button>
+
+                    <div class="login-link">
+                        <p>Already have an account? <a href="login.html">Log in here</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="image-column" id="signupImageSection"></div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <span>&copy; 2024 @Mithilesh Chaurasiya</span>
+            <nav>
+                <a href="index.html">Main Page</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        const images = ['url("template/register1.jpg")'];
+        const imageSection = document.getElementById('signupImageSection');
+        imageSection.style.backgroundImage = images[0];
+
+        document.getElementById('signupForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            alert(`You have been successfully registered to Bombay Hospital, ${name}!`);
+            window.location.href = 'dashboard.html';
+        });
+    </script>
+</body>
+</html>
